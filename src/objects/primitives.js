@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export function createCubes(color, x) {
+export function createBox(color, x) {
   const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshBasicMaterial({
     color,

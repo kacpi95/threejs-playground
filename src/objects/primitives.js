@@ -47,3 +47,32 @@ export function createSphere({
 
   return sphere;
 }
+
+export function createTorus({
+  radius = 1,
+  tubeRadius = 0.4,
+  radialSegments = 16,
+  tubularSegments = 16,
+  arc = Math.PI * 2,
+  color = 0xffff00,
+  wireframe = false,
+  x = 0,
+  y = 0,
+  z = 0,
+} = {}) {
+  const torusGeometry = new THREE.TorusGeometry(
+    radius,
+    tubeRadius,
+    radialSegments,
+    tubularSegments,
+    arc,
+  );
+
+  const torusMaterial = new THREE.MeshBasicMaterial({ color, wireframe });
+
+  const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+
+  torus.position.set(x, y, z);
+
+  return torus;
+}

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 export function createBox({
-  color = 0x00ff00,
+  color = 0xff0000,
   x = 0,
   y = 0,
   z = 0,
@@ -19,4 +19,31 @@ export function createBox({
   cube.position.set(x, y, z);
 
   return cube;
+}
+
+export function createSphere({
+  radius = 1,
+  widthSegments = 16,
+  heightSegments = 16,
+  color = 0x00ff00,
+  wireframe = false,
+  x = 0,
+  y = 0,
+  z = 0,
+} = {}) {
+  const sphereGeometry = new THREE.SphereGeometry(
+    radius,
+    widthSegments,
+    heightSegments,
+  );
+  const sphereMaterial = new THREE.MeshBasicMaterial({
+    color,
+    wireframe,
+  });
+
+  const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+
+  sphere.position.set(x, y, z);
+
+  return sphere;
 }

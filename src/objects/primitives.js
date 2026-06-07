@@ -76,3 +76,32 @@ export function createTorus({
 
   return torus;
 }
+
+export function createCylinder({
+  radiusTop = 1,
+  radiusBottom = 1,
+  height = 1,
+  radialSegments = 12,
+  heightSegments = 12,
+  color = 0xfff0ff,
+  wireframe = false,
+  x = 1,
+  y = 2,
+  z = 0,
+} = {}) {
+  const cylinderGeometry = new THREE.CylinderGeometry(
+    radiusTop,
+    radiusBottom,
+    height,
+    radialSegments,
+    heightSegments,
+  );
+
+  const cylinderMaterial = new THREE.MeshBasicMaterial({ color, wireframe });
+
+  const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
+
+  cylinder.position.set(x, y, z);
+
+  return cylinder;
+}
